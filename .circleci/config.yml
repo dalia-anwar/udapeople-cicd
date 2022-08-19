@@ -249,7 +249,6 @@ jobs:
     steps:
       - checkout
       - install_awscli
-      - install_npm  #This is because I faced issue of npm command not found
       - run:
           name: Run migrations
           command: |
