@@ -10,6 +10,15 @@ commands:
               curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
               unzip awscliv2.zip
               sudo ./aws/install
+
+    install_npm:
+      description: Install npm
+      steps:
+        - run:
+            name: Install npm
+            command: |
+              sudo apt install npm 
+
     install_ansible:
       description: install Ansible f
       steps:
@@ -239,6 +248,7 @@ jobs:
     steps:
       - checkout
       - install_awscli
+      - install_npm  #This is because I faced issue of npm command not found
       - run:
           name: Run migrations
           command: |
